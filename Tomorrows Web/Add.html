@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>BUY NOW</title>
+        <link rel="stylesheet" href="Add.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="body">
+    <div class="taas">
+<nav> <a href="website.html"><img src="img/BUY.png" class="img-logo"></a>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Location</a></li>
+        <li><a href="#">About us</a></li>
+    </ul>
+    <button type="button"><a href="done.html">Done</a></button>
+</nav>
+    </div>
+    <section class="gallery">
+    <div class="container">
+        <!-- Slider main container -->
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="img/skyline.jpg"></div>
+      <div class="swiper-slide"><img src="img/typer.jpg"></div>
+      <div class="swiper-slide"><img src="img/supra.jpg"></div>
+      <div class="swiper-slide"><img src="img/silvia.jpg"></div>
+    
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+  </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+      </section>
+      <script>
+        const swiper = new Swiper('.swiper', {
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    loop: true, 
+ 
+    direction: 'horizontal',
+    loop: true,
+  
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  
+    
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  
+   
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  
+      </script>
+     <div id="geolocation">
+      <h1>Customer's Address</h1>
+  </div>
+
+  <div id="wrapper">
+      <button id="location-button">Get Customer's Location</button>
+      <div id="map"></div>
+  </div>
+  <script>
+
+      // Gets the button object
+      let btn = document.querySelector("#location-button");
+
+      // Sets onclick event for the button
+      btn.onclick = () => {
+          
+          // Gets geolocation data
+          navigator.geolocation.getCurrentPosition(position => {
+
+              // Saves position coordinates
+              const {latitude, longitude} = position.coords;
+
+              // Creates an iframe embedding googlemaps with the acquired lats and longs
+              map.innerHTML = '<iframe width="700" height="300" src="https://maps.google.com/maps?q='+latitude+','+longitude+'&amp;z=15&amp;output=embed"></iframe>';
+          })
+      }
+  </script>
+    <footer> Project by Sol Andrew R. Domingo Jr.</footer>
+    </body>
+</html>
